@@ -16,5 +16,7 @@ public class StaticClass {
 
     //Bugly key
     public static final String BUGLY_APP_ID = "b9928df234";
+    //Bmob key
+    public static final String BMOB_APP_ID = "648c374339029dbf16178e02929dd547";
 
 }
