@@ -1,5 +1,6 @@
 package com.imooc.smartbutler;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import com.imooc.smartbutler.fragment.GirlFragment;
 import com.imooc.smartbutler.fragment.UserFragment;
 import com.imooc.smartbutler.fragment.WechatFragment;
 import com.imooc.smartbutler.ui.SettingActivity;
+import com.imooc.smartbutler.utils.L;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ViewPager mViewPager;
     private FloatingActionButton fab_setting;
 
+    public Context mContext;
     private List<String> mTitle;
     private List<Fragment> mFragment;
 
@@ -43,7 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        mTitle = new ArrayList<String>();
+        mContext = getApplicationContext();
+        L.i(mContext + "test");
+        mTitle = new ArrayList<>();
         mTitle.add("服务管家");
         mTitle.add("微信精选");
         mTitle.add("美女如云");

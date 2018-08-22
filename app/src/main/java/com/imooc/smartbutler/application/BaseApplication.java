@@ -3,6 +3,8 @@ package com.imooc.smartbutler.application;
 import android.app.Application;
 import android.os.StrictMode;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.imooc.smartbutler.utils.StaticClass;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -19,6 +21,8 @@ public class BaseApplication extends Application{
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         builder.detectFileUriExposure();
+
+        SpeechUtility.createUtility(getApplicationContext(), SpeechConstant.APPID + "=" + StaticClass.VOICE_KEY);
     }
 
 }

@@ -19,4 +19,18 @@ public class StaticClass {
     //Bmob key
     public static final String BMOB_APP_ID = "648c374339029dbf16178e02929dd547";
 
+    //快递Key
+    public static final String COURIER_KEY = "a9d81b07520143e60db852c961c9a7f3";
+
+
+    public static final String PHONE_KEY = "22a6ba14995ce26dd0002216be51dabb";
+
+    public static final String CHAT_LIST_KEY = "7a48539921338ef90866922b21e25f6d";
+
+    //语音Key
+    public static final String VOICE_KEY = "5b7b8b2e";
+
+    public static final String WECHAT_KEY = "78f723dccf85aea324a3cf0daac97f35";
+
+    public static final String GIRL_URL = "http://gank.io/api/search/query/listview/category/福利/count/50/page/1";
 }
