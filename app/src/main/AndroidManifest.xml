@@ -71,6 +71,10 @@
 
         <activity android:name=".ui.PhoneActivity"/>
 
+        <activity android:name=".ui.QrCodeActivity"/>
+
+        <activity android:name=".ui.AboutActivity"/>
+
     </application>
 
 </manifest>
