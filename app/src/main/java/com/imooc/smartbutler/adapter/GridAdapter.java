@@ -72,10 +72,8 @@ public class GridAdapter extends BaseAdapter {
         //解析图片
         String url = data.getImgUrl();
 
-//        PicassoUtils.loadImageViewSize(mContext,url,width/2,500,viewHolder.imageView);
-        Glide.with(mContext)
-                .load(url)
-                .into(viewHolder.imageView);
+        PicassoUtils.loadImageViewSize(mContext,url,width/2,500,viewHolder.imageView);
+//        Glide.with(mContext).load(url).into(viewHolder.imageView);
         return convertView;
     }
 

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTitle.add("美女如云");
         mTitle.add("个人中心");
 
-        mFragment = new ArrayList<Fragment>();
+        mFragment = new ArrayList<>();
         mFragment.add(new ButlerFragment());
         mFragment.add(new WechatFragment());
         mFragment.add(new GirlFragment());

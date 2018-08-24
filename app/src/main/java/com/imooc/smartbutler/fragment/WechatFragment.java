@@ -86,16 +86,16 @@ public class WechatFragment extends Fragment{
                 JSONObject json = (JSONObject) jsonList.get(i);
                 WeChatData data = new WeChatData();
 
-                String titlr = json.getString("title");
+                String title = json.getString("title");
                 String url = json.getString("url");
 
-                data.setTitle(titlr);
+                data.setTitle(title);
                 data.setSource(json.getString("source"));
-                data.setImgUrl(json.getString("firstImg"));
-
+//                data.setImgUrl(json.getString("firstImg"));
+                data.setImgUrl("http://ww3.sinaimg.cn/large/610dc034jw1f070hyadzkj20p90gwq6v.jpg");
                 mList.add(data);
 
-                mListTitle.add(titlr);
+                mListTitle.add(title);
                 mListUrl.add(url);
             }
             L.i(getActivity() + "test2");

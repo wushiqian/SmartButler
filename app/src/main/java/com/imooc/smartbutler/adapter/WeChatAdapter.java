@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.imooc.smartbutler.R;
 import com.imooc.smartbutler.entity.WeChatData;
 import com.imooc.smartbutler.utils.L;
+import com.imooc.smartbutler.utils.PicassoUtils;
 //import com.imooc.smartbutler.utils.PicassoUtils;
 
 import java.util.List;
@@ -80,9 +81,9 @@ public class WeChatAdapter extends BaseAdapter{
         L.i(viewHolder.iv_img.getContext() + "test3" + data.getImgUrl());
         if(!TextUtils.isEmpty(data.getImgUrl())){
             //加载图片
-//            PicassoUtils.loadImageViewSize(mContext, data.getImgUrl(), width/3, 250, viewHolder.iv_img);
+            PicassoUtils.loadImageViewSize(mContext, data.getImgUrl(), width/3, 250, viewHolder.iv_img);
 //            PicassoUtils.loadImageViewCrop(mContext,data.getImgUrl(),viewHolder.iv_img);
-            Glide.with(viewHolder.iv_img.getContext()).load(data.getImgUrl()).into(viewHolder.iv_img);
+//            Glide.with(viewHolder.iv_img.getContext()).load(data.getImgUrl()).into(viewHolder.iv_img);
         }
         return convertView;
     }

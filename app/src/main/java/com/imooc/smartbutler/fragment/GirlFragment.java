@@ -11,12 +11,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.bumptech.glide.Glide;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.imooc.smartbutler.R;
 import com.imooc.smartbutler.adapter.GridAdapter;
 import com.imooc.smartbutler.entity.GirlData;
 import com.imooc.smartbutler.utils.L;
+import com.imooc.smartbutler.utils.PicassoUtils;
 import com.imooc.smartbutler.view.CustomDialog;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpCallback;
@@ -25,12 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-
-//import uk.co.senab.photoview.PhotoViewAttacher;
 
 /*
  * 包名：SmartButler
@@ -82,15 +78,15 @@ public class GirlFragment extends Fragment {
                 R.style.Theme_dialog, Gravity.CENTER, R.style.pop_anim_style);
         iv_img = dialog.findViewById(R.id.iv_img);
 
-        String welfare = null;
-        try {
-            //Gank升級 需要转码
-            welfare = URLEncoder.encode(getString(R.string.text_welfare), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+//        String welfare = null;
+//        try {
+//            //Gank升級 需要转码
+//            welfare = URLEncoder.encode(getString(R.string.text_welfare), "UTF-8");
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
         //解析
-        String uuu = "https://gank.io/api/random/data/%E7%A6%8F%E5%88%A9/20";
+        String uuu = "https://gank.io/api/data/%E7%A6%8F%E5%88%A9/100/1";
         L.i("test4" + uuu);
         RxVolley.get(uuu, new HttpCallback() {
             @Override
@@ -105,8 +101,8 @@ public class GirlFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //解析图片
-//                PicassoUtils.loadImaheView(getActivity(), mListUrl.get(position), iv_img);
-                Glide.with(getActivity()).load(mListUrl.get(position)).into(iv_img);
+                PicassoUtils.loadImaheView(getActivity(), mListUrl.get(position), iv_img);
+//                Glide.with(getActivity()).load(mListUrl.get(position)).into(iv_img);
                 //缩放
                 mAttacher = new PhotoViewAttacher(iv_img);
                 //刷新
@@ -124,13 +120,15 @@ public class GirlFragment extends Fragment {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = (JSONObject) jsonArray.get(i);
                 String url = json.getString("url");
+                L.i("test5  " + url);
+//                url = "http://ww3.sinaimg.cn/large/610dc034jw1f070hyadzkj20p90gwq6v.jpg";
                 mListUrl.add(url);
 
                 GirlData data = new GirlData();
                 data.setImgUrl(url);
                 mList.add(data);
             }
-            mAdapter = new GridAdapter(this.getActivity(), mList);
+            mAdapter = new GridAdapter(getActivity(), mList);
             //设置适配器
             mGridView.setAdapter(mAdapter);
         } catch (JSONException e) {
